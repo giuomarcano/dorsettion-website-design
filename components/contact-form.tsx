@@ -10,7 +10,12 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useRouter } from "next/navigation"
-import ReCAPTCHA from "react-google-recaptcha"
+import dynamic from "next/dynamic"
+
+// Importar ReCAPTCHA dinámicamente para evitar errores de SSR
+const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+  ssr: false,
+})
 
 const formSchema = z.object({
   nombre: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -24,16 +29,33 @@ export function ContactForm() {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null)
   const router = useRouter()
   const [recaptchaSiteKey, setRecaptchaSiteKey] = useState<string>("")
+  const [isRecaptchaLoading, setIsRecaptchaLoading] = useState(true)
+  const [recaptchaError, setRecaptchaError] = useState(false)
 
   useEffect(() => {
     // Obtener la clave del sitio de reCAPTCHA
+    setIsRecaptchaLoading(true)
     fetch("/api/recaptcha-key")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al obtener la clave del sitio de reCAPTCHA")
+        }
+        return response.json()
+      })
       .then((data) => {
-        setRecaptchaSiteKey(data.siteKey)
+        if (data.siteKey) {
+          setRecaptchaSiteKey(data.siteKey)
+          setRecaptchaError(false)
+        } else {
+          setRecaptchaError(true)
+        }
       })
       .catch((error) => {
         console.error("Error al obtener la clave del sitio de reCAPTCHA:", error)
+        setRecaptchaError(true)
+      })
+      .finally(() => {
+        setIsRecaptchaLoading(false)
       })
   }, [])
 
@@ -163,10 +185,23 @@ export function ContactForm() {
         />
 
         <div className="pt-2">
-          <ReCAPTCHA sitekey={recaptchaSiteKey} onChange={(value) => setCaptchaValue(value)} />
+          {isRecaptchaLoading ? (
+            <div className="flex items-center space-x-2 text-sm text-gray-500">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              <span>Cargando captcha...</span>
+            </div>
+          ) : recaptchaError ? (
+            <div className="text-sm text-red-500">Error al cargar el captcha. Por favor, recarga la página.</div>
+          ) : (
+            recaptchaSiteKey && <ReCAPTCHA sitekey={recaptchaSiteKey} onChange={(value) => setCaptchaValue(value)} />
+          )}
         </div>
 
-        <Button type="submit" className="bg-black hover:bg-gray-800 text-white w-full sm:w-auto" disabled={isLoading}>
+        <Button
+          type="submit"
+          className="bg-black hover:bg-gray-800 text-white w-full sm:w-auto"
+          disabled={isLoading || isRecaptchaLoading || recaptchaError}
+        >
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
