@@ -33,8 +33,8 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
   const [containerWidth, setContainerWidth] = useState<number>(0)
-  const containerRef = useRef<HTMLDivElement>(null)
   const [pdfReady, setPdfReady] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,15 +48,13 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  // Configurar worker para PDF.js cuando los componentes estén cargados
   useEffect(() => {
     const setupPdf = async () => {
       try {
         const components = await PDFComponents
         if (components.pdfjs) {
           const pdfjs = components.pdfjs
-          // Usar la misma versión que la API
-          pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
+          pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`
           setPdfReady(true)
         }
       } catch (err) {
@@ -103,7 +101,7 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
   }
 
   return (
-    <div ref={containerRef} className="w-full max-w-4xl mx-auto p-4">
+    <div ref={containerRef} className="w-full max-w-4xl mx-auto p-4 min-h-[400px]">
       {loading && (
         <div className="flex flex-col items-center justify-center my-8 py-16">
           <Loader2 className="animate-spin h-8 w-8 mb-4 text-pink-400" />
@@ -124,7 +122,7 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
         </div>
       )}
 
-      {!error && pdfReady && (
+      {!error && pdfReady && containerWidth > 0 && (
         <PDFComponents.Document
           file={fileUrl}
           onLoadSuccess={onDocumentLoadSuccess}
@@ -134,7 +132,7 @@ export default function PDFViewer({ fileUrl }: PDFViewerProps) {
         >
           <PDFComponents.Page
             pageNumber={pageNumber}
-            width={containerWidth > 0 ? containerWidth - 32 : undefined}
+            width={containerWidth - 32}
             renderTextLayer={false}
             renderAnnotationLayer={false}
           />
