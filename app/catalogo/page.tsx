@@ -5,7 +5,7 @@ import PDFViewer from "@/components/pdf-viewer"
 import { Button } from "@/components/ui/button"
 
 export default function CatalogoPage() {
-  const pdfUrl = "/catalogo.pdf"
+  const pdfUrl = "/catalogo.pdf" // asegúrate que esto exista en /public
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -16,7 +16,7 @@ export default function CatalogoPage() {
               <ChevronLeft className="h-5 w-5 mr-1" />
               Volver al inicio
             </Link>
-            <Link href={pdfUrl} download className="flex items-center">
+            <Link href={pdfUrl} download prefetch={false} className="flex items-center">
               <Button variant="outline" className="border-black text-black hover:bg-gray-100">
                 <Download className="mr-2 h-4 w-4" /> Descargar PDF
               </Button>
@@ -27,7 +27,7 @@ export default function CatalogoPage() {
 
       <div className="flex-1 bg-gray-50 py-8">
         <div className="container max-w-6xl mx-auto px-4">
-          <div className="bg-white shadow-md rounded-lg overflow-hidden">
+          <div className="bg-white shadow-md rounded-lg overflow-hidden min-h-[500px]">
             <div className="p-6 border-b border-gray-200">
               <h1 className="text-2xl font-light">Catálogo Dorsettion</h1>
               <p className="text-gray-500 mt-1">Explora nuestra colección exclusiva</p>
