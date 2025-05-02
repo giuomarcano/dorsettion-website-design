@@ -12,7 +12,7 @@ export default function CatalogoPage() {
   const [activeCategory, setActiveCategory] = useState(catalogData.categories[0].name.toLowerCase())
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col bg-white">
       <header className="w-full py-4 px-4 border-b border-gray-200 bg-white sticky top-0 z-10">
         <div className="container max-w-6xl mx-auto">
           <div className="flex justify-between items-center">
@@ -25,33 +25,38 @@ export default function CatalogoPage() {
         </div>
       </header>
 
-      <div className="flex-1 bg-gray-50 py-8">
+      <div className="flex-1 py-8 bg-pink-50">
         <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-light mb-4">Catálogo Dorsettion</h1>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-light mb-4 text-black">Catálogo Dorsettion</h1>
+            <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
               Explora nuestra colección exclusiva diseñada para la mujer moderna y sofisticada.
             </p>
-            <div className="w-20 h-1 bg-pink-300 mx-auto mt-6"></div>
+            <div className="w-20 h-1 bg-pink-300 mx-auto mt-6 rounded-full"></div>
           </div>
 
-          {/* Opción de descarga del PDF antes de las tarjetas de productos */}
+          {/* Botón de descarga PDF */}
           <div className="mb-10 text-center bg-white p-6 rounded-lg shadow-sm">
             <p className="text-gray-600 mb-4">¿Prefieres ver nuestro catálogo completo en PDF? Descárgalo aquí:</p>
             <Link
               href="/catalogo.pdf"
               download
-              className="inline-flex items-center px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center px-5 py-2.5 bg-black text-white rounded-full hover:bg-pink-400 transition-colors"
             >
               <Download className="mr-2 h-4 w-4" />
               Descargar catálogo PDF
             </Link>
           </div>
 
+          {/* Tabs por categoría */}
           <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
-            <TabsList className="grid grid-cols-3 mb-8">
+            <TabsList className="grid grid-cols-2 sm:grid-cols-3 mb-8 gap-2">
               {catalogData.categories.map((category) => (
-                <TabsTrigger key={category.name} value={category.name.toLowerCase()} className="text-sm md:text-base">
+                <TabsTrigger
+                  key={category.name}
+                  value={category.name.toLowerCase()}
+                  className="text-sm sm:text-base py-2 px-4 rounded-full data-[state=active]:bg-pink-100 data-[state=active]:text-pink-600 transition-all"
+                >
                   {category.name}
                 </TabsTrigger>
               ))}
@@ -59,7 +64,7 @@ export default function CatalogoPage() {
 
             {catalogData.categories.map((category) => (
               <TabsContent key={category.name} value={category.name.toLowerCase()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.items.map((product) => (
                     <ProductCard
                       key={product.id}
