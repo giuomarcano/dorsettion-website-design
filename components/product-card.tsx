@@ -9,6 +9,7 @@ interface ProductCardProps {
   sizes?: string[] // Hacemos que sizes sea opcional
   image: string
   isOffer?: boolean
+  isNew?: boolean
   soldOut?: boolean
   description?: string
 }
@@ -20,6 +21,7 @@ export function ProductCard({
   sizes = [], // Valor predeterminado como array vacío
   image,
   isOffer,
+  isNew,
   soldOut,
   description,
 }: ProductCardProps) {
@@ -33,7 +35,10 @@ export function ProductCard({
           className="object-cover group-hover:scale-105 transition-transform duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        {isOffer && <Badge className="absolute top-2 right-2 bg-pink-500 hover:bg-pink-600">OFERTA</Badge>}
+        <div className="absolute top-2 right-2 flex flex-col gap-2">
+          {isOffer && <Badge className="bg-pink-500 hover:bg-pink-600">OFERTA</Badge>}
+          {isNew && <Badge className="bg-green-500 hover:bg-green-600">NUEVO</Badge>}
+        </div>
         {soldOut && (
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
             <span className="text-white font-medium text-lg">AGOTADO</span>
@@ -46,7 +51,8 @@ export function ProductCard({
           <p className="text-lg font-semibold">S/ {price.toFixed(2)}</p>
           <p className="text-sm text-gray-500">
             {sizes && sizes.length > 0 ? sizes.join(" · ") : ""}
-            {description && ` · ${description}`}
+            {description && sizes && sizes.length > 0 && " · "}
+            {description && <span className="italic">{description.includes("AGOTADA") ? description : ""}</span>}
           </p>
         </div>
         {!soldOut && (

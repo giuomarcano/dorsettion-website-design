@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useParams, notFound } from "next/navigation"
+import { useParams, notFound, useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronLeft } from "lucide-react"
@@ -11,10 +11,16 @@ import catalogData from "@/app/data/catalog.json"
 
 export default function ProductDetailPage() {
   const params = useParams()
+  const router = useRouter()
   const productId = params.productId as string
   const [product, setProduct] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
+
+  // Efecto para desplazarse hacia arriba cuando cambia el productId
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [productId])
 
   useEffect(() => {
     // Buscar el producto en todas las categorías
@@ -62,6 +68,7 @@ export default function ProductDetailPage() {
               <ChevronLeft className="h-5 w-5 mr-1" />
               Volver al catálogo
             </Link>
+            <Image src="/logotipo.png" alt="Dorsettion" width={150} height={50} className="h-auto" />
           </div>
         </div>
       </header>
@@ -79,16 +86,18 @@ export default function ProductDetailPage() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
-                {product.isOffer && (
-                  <Badge className="absolute top-4 right-4 bg-pink-500 hover:bg-pink-600">OFERTA</Badge>
-                )}
+                <div className="absolute top-4 right-4 flex flex-col gap-2">
+                  {product.isOffer && <Badge className="bg-pink-500 hover:bg-pink-600">OFERTA</Badge>}
+                  {product.isNew && <Badge className="bg-green-500 hover:bg-green-600">NUEVO</Badge>}
+                </div>
               </div>
 
               <div className="flex flex-col">
                 <h1 className="text-2xl md:text-3xl font-medium">{product.name}</h1>
-                <div className="mt-2 flex items-center">
+                <div className="mt-2 flex items-center gap-2">
                   <span className="text-2xl font-semibold">S/ {product.price.toFixed(2)}</span>
-                  {product.isOffer && <Badge className="ml-3 bg-pink-500 hover:bg-pink-600">OFERTA</Badge>}
+                  {product.isOffer && <Badge className="bg-pink-500 hover:bg-pink-600">OFERTA</Badge>}
+                  {product.isNew && <Badge className="bg-green-500 hover:bg-green-600">NUEVO</Badge>}
                 </div>
 
                 <div className="mt-6">
@@ -161,6 +170,9 @@ export default function ProductDetailPage() {
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, 33vw"
                         />
+                        {relatedProduct.isNew && (
+                          <Badge className="absolute top-2 right-2 bg-green-500 hover:bg-green-600">NUEVO</Badge>
+                        )}
                       </div>
                       <div className="p-4">
                         <h3 className="font-medium">{relatedProduct.name}</h3>

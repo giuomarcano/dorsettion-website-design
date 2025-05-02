@@ -15,6 +15,9 @@ export default function Home() {
     .flatMap((category) => category.items)
     .filter((product) => featuredProductIds.includes(product.id))
 
+  // Obtener productos nuevos (Cotton Candy)
+  const newProducts = catalogData.categories.flatMap((category) => category.items).filter((product) => product.isNew)
+
   return (
     <main className="flex min-h-screen flex-col items-center">
       <header className="w-full py-6 px-4 border-b border-gray-200 flex justify-center">
@@ -55,10 +58,151 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Nueva sección de promoción HOT BASICS */}
+      <section className="w-full py-16 px-4 bg-pink-50">
+        <div className="container max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm font-medium mb-4">
+              PROMOCIÓN ESPECIAL
+            </span>
+            <h2 className="text-3xl font-light mb-4">HOT BASICS</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Aprovecha nuestra promoción especial en tops básicos de encaje. Disponibles en colores blanco, negro y
+              rosa.
+            </p>
+            <div className="w-20 h-1 bg-pink-300 mx-auto mt-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Paquete 1: 1 Hot Basic */}
+            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="aspect-[1/1] relative">
+                <Image
+                  src="/images/hot-basics-promo-1.jpeg"
+                  alt="1 Hot Basic"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute top-2 right-2 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  S/ 35
+                </div>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-medium mb-2">1 Hot Basic</h3>
+                <p className="text-gray-600 mb-4">Elige tu top favorito en cualquier color disponible.</p>
+                <Link
+                  href="https://wa.me/51913552052?text=Hola%2C%20me%20interesa%20la%20promoción%20de%201%20Hot%20Basic%20por%20S%2F%2035"
+                  target="_blank"
+                >
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Comprar ahora</Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Paquete 2: 2 Hot Basics */}
+            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="aspect-[1/1] relative">
+                <Image
+                  src="/images/hot-basics-promo-2.jpeg"
+                  alt="2 Hot Basics"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute top-2 right-2 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  S/ 65
+                </div>
+                <div className="absolute top-2 left-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  AHORRA S/ 5
+                </div>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-medium mb-2">2 Hot Basics</h3>
+                <p className="text-gray-600 mb-4">Combina dos tops en los colores que prefieras.</p>
+                <Link
+                  href="https://wa.me/51913552052?text=Hola%2C%20me%20interesa%20la%20promoción%20de%202%20Hot%20Basics%20por%20S%2F%2065"
+                  target="_blank"
+                >
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Comprar ahora</Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Paquete 3: 3 Hot Basics */}
+            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="aspect-[1/1] relative">
+                <Image
+                  src="/images/hot-basics-promo-3.jpeg"
+                  alt="3 Hot Basics"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute top-2 right-2 bg-pink-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  S/ 90
+                </div>
+                <div className="absolute top-2 left-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  AHORRA S/ 15
+                </div>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-medium mb-2">3 Hot Basics</h3>
+                <p className="text-gray-600 mb-4">Lleva la colección completa en tus colores favoritos.</p>
+                <Link
+                  href="https://wa.me/51913552052?text=Hola%2C%20me%20interesa%20la%20promoción%20de%203%20Hot%20Basics%20por%20S%2F%2090"
+                  target="_blank"
+                >
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white">Comprar ahora</Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nueva sección para la colección Cotton Candy */}
+      <section className="w-full py-16 px-4 bg-white">
+        <div className="container max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
+              NUEVA COLECCIÓN
+            </span>
+            <h2 className="text-3xl font-light mb-4">Cotton Candy Collection</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Descubre nuestra nueva colección Cotton Candy, diseñada para resaltar tu belleza con un toque dulce y
+              sofisticado.
+            </p>
+            <div className="w-20 h-1 bg-pink-300 mx-auto mt-4"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {newProducts.slice(0, 3).map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                sizes={product.sizes}
+                image={product.image}
+                isOffer={product.isOffer}
+                isNew={product.isNew}
+                soldOut={product.soldOut}
+                description={product.description}
+              />
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/catalogo">
+              <Button className="bg-black hover:bg-gray-800 text-white">Ver toda la colección</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="w-full py-16 px-4 bg-gray-50">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-light mb-4">Nuestra Colección</h2>
+            <h2 className="text-3xl font-light mb-4">Productos Destacados</h2>
             <div className="w-20 h-1 bg-pink-300 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -71,6 +215,7 @@ export default function Home() {
                 sizes={product.sizes}
                 image={product.image}
                 isOffer={product.isOffer}
+                isNew={product.isNew}
                 soldOut={product.soldOut}
                 description={product.description}
               />

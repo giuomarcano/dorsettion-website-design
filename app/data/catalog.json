@@ -8,59 +8,111 @@
           "name": "SET OF LACE BLANCO",
           "price": 49.9,
           "sizes": ["S", "M", "L", "XL"],
-          "image": "/images/collection-1.jpeg"
+          "image": "/images/set-of-lace-blanco.png",
+          "description": "Conjunto de encaje blanco, elegante y sofisticado."
         },
         {
           "id": "lola-bunny",
           "name": "LOLA BUNNY",
           "price": 99.0,
           "sizes": ["S", "M", "L", "XL"],
-          "image": "/images/collection-2.jpeg"
+          "image": "/images/lola-bunny.png",
+          "description": "Body de terciopelo rosa con detalles de cadenas y pompón."
         },
         {
           "id": "dream-bunny",
           "name": "DREAM BUNNY",
           "price": 99.0,
           "sizes": ["S", "M", "L"],
-          "image": "/images/collection-3.jpeg"
+          "image": "/images/dream-bunny.png",
+          "description": "Conjunto con detalles de pompón y cadenas decorativas."
         },
         {
           "id": "set-tecna",
           "name": "SET TECNA",
           "price": 99.0,
           "sizes": ["S", "M"],
-          "image": "/images/collection-1.jpeg"
+          "image": "/images/set-tecna.png",
+          "description": "Conjunto negro con detalles de cadenas y anillos metálicos."
         },
         {
           "id": "set-angel",
           "name": "SET ANGEL",
           "price": 59.9,
           "sizes": ["S", "M", "L"],
-          "image": "/images/collection-2.jpeg",
-          "isOffer": true
+          "image": "/images/set-angel.png",
+          "isOffer": true,
+          "description": "Conjunto de encaje rosa con detalles brillantes y pedrería."
         },
         {
           "id": "set-natividad",
           "name": "SET NATIVIDAD",
           "price": 55.0,
           "sizes": ["S", "M"],
-          "image": "/images/collection-3.jpeg",
-          "isOffer": true
+          "image": "/images/set-natividad.png",
+          "isOffer": true,
+          "description": "Conjunto de encaje rosa con detalles de cadenas y corazones."
         },
         {
           "id": "set-natividad-negro",
           "name": "SET NATIVIDAD NEGRO",
           "price": 55.0,
           "sizes": ["M", "L"],
-          "image": "/images/collection-1.jpeg",
-          "isOffer": true
+          "image": "/images/set-natividad-negro.png",
+          "isOffer": true,
+          "description": "Conjunto negro de encaje con detalles de cadenas y corazones."
+        },
+        {
+          "id": "set-natividad-rosa",
+          "name": "SET NATIVIDAD ROSA",
+          "price": 55.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/set-natividad-rosa.png",
+          "isOffer": true,
+          "description": "Conjunto rosa de encaje con detalles de cadenas y ligas."
         },
         {
           "id": "set-tecna-rosa",
           "name": "SET TECNA ROSA",
           "price": 99.0,
           "sizes": ["S", "M", "L", "XL"],
-          "image": "/images/collection-2.jpeg"
+          "image": "/images/set-tecna-rosa.png",
+          "description": "Conjunto rosa con detalles de cadenas y anillos metálicos."
+        },
+        {
+          "id": "set-amore-perpetua-rosa",
+          "name": "AMORE PERPETUA ROSA",
+          "price": 85.0,
+          "sizes": ["S", "M", "L", "XL"],
+          "image": "/images/set-amore-perpetua-rosa.png",
+          "description": "Conjunto rosa con correas y detalles de corazón."
+        },
+        {
+          "id": "set-cotton-candy-boxer",
+          "name": "BOXER + TOP COTTON CANDY",
+          "price": 80.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/boxer-corazon-cotton-candy.png",
+          "description": "Conjunto de boxer y top Cotton Candy. No se venden por separado.",
+          "isNew": true
+        },
+        {
+          "id": "set-cotton-candy-tanga",
+          "name": "TANGA + TOP COTTON CANDY",
+          "price": 70.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/tanga-cotton-candy.png",
+          "description": "Conjunto de tanga y top Cotton Candy. No se venden por separado.",
+          "isNew": true
+        },
+        {
+          "id": "set-cotton-candy-calzoneta",
+          "name": "CALZONETA + TOP COTTON CANDY",
+          "price": 70.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/calzoneta-cotton-candy.png",
+          "description": "Conjunto de calzoneta y top Cotton Candy. No se venden por separado.",
+          "isNew": true
         }
       ]
     },
@@ -72,60 +124,148 @@
           "name": "HOT BASIC POLO",
           "price": 35.0,
           "sizes": ["S", "M"],
-          "description": "Regulable",
-          "image": "/images/collection-3.jpeg"
-        },
-        {
-          "id": "amore-perpetua-rosa",
-          "name": "AMORE PERPETUA ROSA",
-          "price": 85.0,
-          "sizes": ["S", "M", "L", "XL"],
-          "image": "/images/collection-1.jpeg"
+          "description": "Polo básico con detalles de encaje. Regulable.",
+          "image": "/images/hot-basic-polo.png"
         },
         {
           "id": "top-simple",
           "name": "TOP",
           "price": 19.9,
           "sizes": ["S", "M", "L"],
-          "image": "/images/collection-2.jpeg"
+          "image": "/images/top-simple.png",
+          "description": "Top básico con mangas cortas de encaje."
+        },
+        {
+          "id": "top-cotton-candy",
+          "name": "TOP CON CORTE COTTON CANDY",
+          "price": 35.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/top-con-corte-cotton-candy.png",
+          "description": "Top con corte especial de la colección Cotton Candy.",
+          "isNew": true
+        },
+        {
+          "id": "hot-basic-blanco",
+          "name": "HOT BASIC BLANCO",
+          "price": 35.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/hot-basics-promo-1.jpeg",
+          "description": "Top básico de encaje en color blanco. Parte de la promoción HOT BASICS."
+        },
+        {
+          "id": "hot-basic-negro",
+          "name": "HOT BASIC NEGRO",
+          "price": 35.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/hot-basics-promo-1.jpeg",
+          "description": "Top básico de encaje en color negro. Parte de la promoción HOT BASICS."
+        },
+        {
+          "id": "hot-basic-rosa",
+          "name": "HOT BASIC ROSA",
+          "price": 35.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/hot-basics-promo-1.jpeg",
+          "description": "Top básico de encaje en color rosa. Parte de la promoción HOT BASICS."
         }
       ]
     },
     {
-      "name": "Tangas",
+      "name": "Tangas y Boxers",
       "items": [
         {
           "id": "thong-wixi",
           "name": "THONG WIXI",
           "price": 35.0,
           "sizes": ["S", "M", "L", "XL"],
-          "image": "/images/collection-3.jpeg"
+          "image": "/images/thong-wixi.png",
+          "description": "Tanga con diseño exclusivo Wixi y detalles de cadenas."
         },
         {
           "id": "tanga-tecna",
           "name": "TANGA TECNA",
           "price": 35.0,
           "sizes": ["XS/S", "M/L"],
-          "image": "/images/collection-1.jpeg"
+          "image": "/images/tanga-tecna.png",
+          "description": "Tanga con detalles de cadenas y anillos metálicos."
         },
         {
           "id": "tanga-fems",
           "name": "TANGA FEMS",
           "price": 29.0,
           "sizes": ["S", "M", "L", "XL"],
-          "image": "/images/collection-2.jpeg"
+          "image": "/images/tanga-fems.png",
+          "description": "Tanga con diseño exclusivo Fems y detalles de pedrería."
         },
         {
           "id": "tanga-mariposa",
           "name": "TANGA MARIPOSA",
           "price": 29.0,
           "description": "AGOTADA",
-          "image": "/images/collection-3.jpeg",
+          "image": "/images/tanga-mariposa.png",
           "soldOut": true,
           "sizes": []
+        },
+        {
+          "id": "boxer-corazon-cotton-candy",
+          "name": "BOXER CORAZÓN COTTON CANDY",
+          "price": 45.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/boxer-corazon-cotton-candy.png",
+          "description": "Boxer con detalles de corazón de la colección Cotton Candy.",
+          "isNew": true
+        },
+        {
+          "id": "tanga-cotton-candy",
+          "name": "TANGA COTTON CANDY",
+          "price": 35.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/tanga-cotton-candy.png",
+          "description": "Tanga de la colección Cotton Candy.",
+          "isNew": true
+        },
+        {
+          "id": "calzoneta-cotton-candy",
+          "name": "CALZONETA COTTON CANDY",
+          "price": 40.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/calzoneta-cotton-candy.png",
+          "description": "Calzoneta de la colección Cotton Candy.",
+          "isNew": true
+        }
+      ]
+    },
+    {
+      "name": "Promociones",
+      "items": [
+        {
+          "id": "promo-1-hot-basic",
+          "name": "1 HOT BASIC",
+          "price": 35.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/hot-basics-promo-1.jpeg",
+          "description": "Elige tu top favorito en cualquier color disponible."
+        },
+        {
+          "id": "promo-2-hot-basics",
+          "name": "2 HOT BASICS",
+          "price": 65.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/hot-basics-promo-2.jpeg",
+          "description": "Combina dos tops en los colores que prefieras. ¡Ahorra S/ 5!",
+          "isOffer": true
+        },
+        {
+          "id": "promo-3-hot-basics",
+          "name": "3 HOT BASICS",
+          "price": 90.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/hot-basics-promo-3.jpeg",
+          "description": "Lleva la colección completa en tus colores favoritos. ¡Ahorra S/ 15!",
+          "isOffer": true
         }
       ]
     }
   ],
-  "featuredProducts": ["set-tecna", "lola-bunny", "dream-bunny"]
+  "featuredProducts": ["set-cotton-candy-boxer", "set-cotton-candy-tanga", "set-tecna", "promo-3-hot-basics"]
 }
