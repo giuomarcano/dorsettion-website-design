@@ -177,7 +177,7 @@
           "id": "thong-wixi",
           "name": "THONG WIXI",
           "price": 35.0,
-          "sizes": ["S", "M", "L", "XL"],
+          "sizes": [],
           "image": "/images/thong-wixi.png",
           "description": "Tanga con diseño exclusivo Wixi y detalles de cadenas."
         },
@@ -201,10 +201,10 @@
           "id": "tanga-mariposa",
           "name": "TANGA MARIPOSA",
           "price": 29.0,
-          "description": "AGOTADA",
+          "sizes": ["S", "M", "L", "XL"],
           "image": "/images/tanga-mariposa.png",
-          "soldOut": true,
-          "sizes": []
+          "description": "AGOTADA",
+          "soldOut": true
         },
         {
           "id": "boxer-corazon-cotton-candy",
@@ -267,5 +267,10 @@
       ]
     }
   ],
-  "featuredProducts": ["set-cotton-candy-boxer", "set-cotton-candy-tanga", "set-tecna", "promo-3-hot-basics"]
+  "featuredProducts": [
+    "set-cotton-candy-boxer",
+    "set-cotton-candy-tanga",
+    "set-tecna",
+    "promo-3-hot-basics"
+  ]
 }
