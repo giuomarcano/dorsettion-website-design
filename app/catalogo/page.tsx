@@ -1,11 +1,14 @@
 "use client"
+
+import { useState } from "react"
 import Link from "next/link"
-import { ChevronLeft, Download } from "lucide-react"
-import PDFViewer from "@/components/pdf-viewer"
-import { Button } from "@/components/ui/button"
+import { ChevronLeft } from "lucide-react"
+import { ProductCard } from "@/components/product-card"
+import catalogData from "@/app/data/catalog.json"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function CatalogoPage() {
-  const pdfUrl = "/catalogo.pdf" // asegúrate que esto exista en /public
+  const [activeCategory, setActiveCategory] = useState(catalogData.categories[0].name.toLowerCase())
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -16,24 +19,59 @@ export default function CatalogoPage() {
               <ChevronLeft className="h-5 w-5 mr-1" />
               Volver al inicio
             </Link>
-            <Link href={pdfUrl} download prefetch={false} className="flex items-center">
-              <Button variant="outline" className="border-black text-black hover:bg-gray-100">
-                <Download className="mr-2 h-4 w-4" /> Descargar PDF
-              </Button>
-            </Link>
           </div>
         </div>
       </header>
 
       <div className="flex-1 bg-gray-50 py-8">
         <div className="container max-w-6xl mx-auto px-4">
-          <div className="bg-white shadow-md rounded-lg overflow-hidden min-h-[500px]">
-            <div className="p-6 border-b border-gray-200">
-              <h1 className="text-2xl font-light">Catálogo Dorsettion</h1>
-              <p className="text-gray-500 mt-1">Explora nuestra colección exclusiva</p>
-            </div>
+          <div className="text-center mb-10">
+            <h1 className="text-3xl md:text-4xl font-light mb-4">Catálogo Dorsettion</h1>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Explora nuestra colección exclusiva diseñada para la mujer moderna y sofisticada.
+            </p>
+            <div className="w-20 h-1 bg-pink-300 mx-auto mt-6"></div>
+          </div>
 
-            <PDFViewer fileUrl={pdfUrl} />
+          <Tabs defaultValue={activeCategory} onValueChange={setActiveCategory} className="w-full">
+            <TabsList className="grid grid-cols-3 mb-8">
+              {catalogData.categories.map((category) => (
+                <TabsTrigger key={category.name} value={category.name.toLowerCase()} className="text-sm md:text-base">
+                  {category.name}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            {catalogData.categories.map((category) => (
+              <TabsContent key={category.name} value={category.name.toLowerCase()}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {category.items.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      id={product.id}
+                      name={product.name}
+                      price={product.price}
+                      sizes={product.sizes}
+                      image={product.image}
+                      isOffer={product.isOffer}
+                      soldOut={product.soldOut}
+                      description={product.description}
+                    />
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">¿Prefieres ver nuestro catálogo completo en PDF? Descárgalo aquí:</p>
+            <Link
+              href="/catalogo.pdf"
+              download
+              className="inline-flex items-center px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
+            >
+              Descargar catálogo PDF
+            </Link>
           </div>
         </div>
       </div>

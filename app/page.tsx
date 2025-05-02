@@ -1,12 +1,20 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Download, Facebook, Instagram } from "lucide-react"
+import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { NewsletterForm } from "@/components/newsletter-form"
 import { ClientSuccessAlert } from "@/components/client-success-alert"
 import { WhatsappButton } from "@/components/whatsapp-button"
+import { ProductCard } from "@/components/product-card"
+import catalogData from "@/app/data/catalog.json"
 
 export default function Home() {
+  // Obtener productos destacados
+  const featuredProductIds = catalogData.featuredProducts
+  const featuredProducts = catalogData.categories
+    .flatMap((category) => category.items)
+    .filter((product) => featuredProductIds.includes(product.id))
+
   return (
     <main className="flex min-h-screen flex-col items-center">
       <header className="w-full py-6 px-4 border-b border-gray-200 flex justify-center">
@@ -54,18 +62,26 @@ export default function Home() {
             <div className="w-20 h-1 bg-pink-300 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="bg-white p-4 shadow-sm hover:shadow-md transition-shadow">
-                <div className="aspect-[3/4] bg-gray-100 mb-4 flex items-center justify-center">
-                  <span className="text-gray-400">Imagen de Catálogo</span>
-                </div>
-                <h3 className="text-xl font-medium mb-2">Colección {item}</h3>
-                <p className="text-gray-600 mb-4">Descubre nuestra selección de prendas exclusivas.</p>
-                <Link href="/catalogo" className="text-pink-500 hover:text-pink-700 font-medium">
-                  Ver más →
-                </Link>
-              </div>
+            {featuredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                price={product.price}
+                sizes={product.sizes}
+                image={product.image}
+                isOffer={product.isOffer}
+                soldOut={product.soldOut}
+                description={product.description}
+              />
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/catalogo">
+              <Button variant="outline" className="border-black text-black hover:bg-gray-100">
+                Ver toda la colección
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -168,7 +184,20 @@ export default function Home() {
                     className="text-gray-400 hover:text-pink-300 transition-colors"
                     aria-label="Facebook"
                   >
-                    <Facebook className="h-5 w-5" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
+                    >
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
                   </a>
                   <a
                     href="https://www.instagram.com/dorsettion/"
@@ -177,7 +206,22 @@ export default function Home() {
                     className="text-gray-400 hover:text-pink-300 transition-colors"
                     aria-label="Instagram"
                   >
-                    <Instagram className="h-5 w-5" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
                   </a>
                   <a
                     href="https://www.tiktok.com/@dorsettion"

@@ -1,0 +1,131 @@
+{
+  "categories": [
+    {
+      "name": "Conjuntos",
+      "items": [
+        {
+          "id": "set-lace-blanco",
+          "name": "SET OF LACE BLANCO",
+          "price": 49.9,
+          "sizes": ["S", "M", "L", "XL"],
+          "image": "/images/collection-1.jpeg"
+        },
+        {
+          "id": "lola-bunny",
+          "name": "LOLA BUNNY",
+          "price": 99.0,
+          "sizes": ["S", "M", "L", "XL"],
+          "image": "/images/collection-2.jpeg"
+        },
+        {
+          "id": "dream-bunny",
+          "name": "DREAM BUNNY",
+          "price": 99.0,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/collection-3.jpeg"
+        },
+        {
+          "id": "set-tecna",
+          "name": "SET TECNA",
+          "price": 99.0,
+          "sizes": ["S", "M"],
+          "image": "/images/collection-1.jpeg"
+        },
+        {
+          "id": "set-angel",
+          "name": "SET ANGEL",
+          "price": 59.9,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/collection-2.jpeg",
+          "isOffer": true
+        },
+        {
+          "id": "set-natividad",
+          "name": "SET NATIVIDAD",
+          "price": 55.0,
+          "sizes": ["S", "M"],
+          "image": "/images/collection-3.jpeg",
+          "isOffer": true
+        },
+        {
+          "id": "set-natividad-negro",
+          "name": "SET NATIVIDAD NEGRO",
+          "price": 55.0,
+          "sizes": ["M", "L"],
+          "image": "/images/collection-1.jpeg",
+          "isOffer": true
+        },
+        {
+          "id": "set-tecna-rosa",
+          "name": "SET TECNA ROSA",
+          "price": 99.0,
+          "sizes": ["S", "M", "L", "XL"],
+          "image": "/images/collection-2.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Tops",
+      "items": [
+        {
+          "id": "hot-basic-polo",
+          "name": "HOT BASIC POLO",
+          "price": 35.0,
+          "sizes": ["S", "M"],
+          "description": "Regulable",
+          "image": "/images/collection-3.jpeg"
+        },
+        {
+          "id": "amore-perpetua-rosa",
+          "name": "AMORE PERPETUA ROSA",
+          "price": 85.0,
+          "sizes": ["S", "M", "L", "XL"],
+          "image": "/images/collection-1.jpeg"
+        },
+        {
+          "id": "top-simple",
+          "name": "TOP",
+          "price": 19.9,
+          "sizes": ["S", "M", "L"],
+          "image": "/images/collection-2.jpeg"
+        }
+      ]
+    },
+    {
+      "name": "Tangas",
+      "items": [
+        {
+          "id": "thong-wixi",
+          "name": "THONG WIXI",
+          "price": 35.0,
+          "sizes": ["S", "M", "L", "XL"],
+          "image": "/images/collection-3.jpeg"
+        },
+        {
+          "id": "tanga-tecna",
+          "name": "TANGA TECNA",
+          "price": 35.0,
+          "sizes": ["XS/S", "M/L"],
+          "image": "/images/collection-1.jpeg"
+        },
+        {
+          "id": "tanga-fems",
+          "name": "TANGA FEMS",
+          "price": 29.0,
+          "sizes": ["S", "M", "L", "XL"],
+          "image": "/images/collection-2.jpeg"
+        },
+        {
+          "id": "tanga-mariposa",
+          "name": "TANGA MARIPOSA",
+          "price": 29.0,
+          "description": "AGOTADA",
+          "image": "/images/collection-3.jpeg",
+          "soldOut": true,
+          "sizes": []
+        }
+      ]
+    }
+  ],
+  "featuredProducts": ["set-tecna", "lola-bunny", "dream-bunny"]
+}
