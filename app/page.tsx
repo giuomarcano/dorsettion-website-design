@@ -98,6 +98,7 @@ export default function CatalogoPage() {
                     description={product.description}
                   />
                 ))}
+                
               </div>
             </TabsContent>
 
