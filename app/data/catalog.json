@@ -179,7 +179,8 @@
           "price": 35.0,
           "sizes": [],
           "image": "/images/thong-wixi.png",
-          "description": "Tanga con diseño exclusivo Wixi y detalles de cadenas."
+          "description": "AGOTADO"
+          "soldOut": true
         },
         {
           "id": "tanga-tecna",
@@ -204,7 +205,6 @@
           "sizes": ["S", "M", "L", "XL"],
           "image": "/images/tanga-mariposa.png",
           "description": "AGOTADA",
-          "soldOut": true
         },
         {
           "id": "boxer-corazon-cotton-candy",
