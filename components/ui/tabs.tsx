@@ -13,8 +13,8 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      // Aquí solo se dejan estilos base, el margen y scroll lo controlamos desde el componente padre
-      "inline-flex items-center justify-start",
+      // Estilos base flexibles; scroll y márgenes los define el padre
+      "inline-flex items-center justify-start gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide",
       className
     )}
     {...props}
@@ -29,7 +29,7 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 aria-selected:bg-gray-200 aria-selected:font-semibold transition",
+      "whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-gray-600 transition-colors hover:text-pink-500 hover:bg-gray-100 data-[state=active]:bg-pink-100 data-[state=active]:text-pink-600",
       className
     )}
     {...props}
@@ -37,6 +37,16 @@ const TabsTrigger = React.forwardRef<
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
-const TabsContent = TabsPrimitive.Content
+const TabsContent = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.Content
+    ref={ref}
+    className={cn("mt-4", className)}
+    {...props}
+  />
+))
+TabsContent.displayName = TabsPrimitive.Content.displayName
 
 export { Tabs, TabsList, TabsTrigger, TabsContent }
