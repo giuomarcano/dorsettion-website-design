@@ -203,8 +203,8 @@
           "name": "TANGA MARIPOSA",
           "price": 29.0,
           "sizes": ["S", "M", "L", "XL"],
-          "image": "/images/tanga-mariposa.png",
-          "description": "AGOTADA"
+          "image": "/images/tanga-mariposa.png"
+          "description": "Tanga con diseño de mariposa."
         },
         {
           "id": "boxer-corazon-cotton-candy",
