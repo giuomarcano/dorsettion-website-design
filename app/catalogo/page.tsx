@@ -39,7 +39,7 @@ export default function CatalogoPage() {
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-light mb-4">Catálogo Dorsettion</h1>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explora nuestra colección exclusiva diseñada para la mujer moderna y sofisticada.
+              Lencería, ropa y pijamas artesanales para mujeres que buscan estilo, comodidad y actitud.
             </p>
             <div className="w-20 h-1 bg-pink-300 mx-auto mt-6"></div>
           </div>
