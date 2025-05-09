@@ -48,7 +48,7 @@ export default function Home() {
 
       <section className="w-full py-16 px-4 bg-white">
         <div className="container max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-light mb-6">DORSETTION | Lencería & Hotwear Handmade</h1>
+          <h1 className="text-4xl md:text-5xl font-light mb-6">Lencería & Hotwear Handmade</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
             Arte íntimo hecho a mano para mujeres que se atreven a destacar. 💋
           </p>
